@@ -1,2 +1,2 @@
 # Phase-Field-Modelling
-Different diffusion processes in octave. 
+Different diffusion processes in octave and python.
