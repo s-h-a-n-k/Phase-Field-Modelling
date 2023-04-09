@@ -16,7 +16,7 @@ def gibbsboltzmann_fft(N, n, alpha, s, *v):
     #n=200;
     c = initial_conc(s, N, *v);mu = mu_phi.get_mu_gibbsboltzmann(alpha, c);print(sum(c));plt.plot(range(N), c, label='Initial Profile');M = 1.0;delx = 0.01;alpha = 2.0;delt = 0.01;k = 1.0;
     for _ in range(n):mu = fft(mu_phi.get_mu_gibbsboltzmann(alpha, c));c = fft(c);c = realpart(ifft([i[0] + delt*M*k*k*i[1] for i in zip(c, mu)]));
-    print(sum(c));plt.plot(range(N), c, label='Final Profile');
+    print(sum(c));plt.plot(range(N), c, label='Final Profile');plt.legend();
 
 c = gibbsboltzmann_fft(64, 200, 1.0, 'unitstep', 0.5, 0.55, 0.65)
 plt.show()
