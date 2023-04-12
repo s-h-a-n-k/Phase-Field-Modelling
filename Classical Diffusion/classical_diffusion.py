@@ -19,7 +19,7 @@ class gibbsboltzmann:
         # alpha = omega / RT
         # beta = delt * M * k**2
         c = initial_conc(s, N, *v);mu = mu_phi.get_mu_gibbsboltzmann(alpha, c);print(sum(c));plt.plot(range(N), c, label='Initial Profile');
-        for _ in range(n):mu = fft(mu_phi.get_mu_gibbsboltzmann(alpha, c));c = fft(c);c = realpart(ifft([i[0] + beta*i[1] for i in zip(c, mu)]));
+        for _ in range(n):mu = fft(mu_phi.get_mu_gibbsboltzmann(alpha, c));c = fft(c);c = realpart(ifft([i[0] - beta*i[1] for i in zip(c, mu)]));
         print(sum(c));plt.plot(range(N), c, label='Final Profile');plt.legend();
 
 
